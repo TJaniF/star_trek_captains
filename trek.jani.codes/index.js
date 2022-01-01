@@ -13,7 +13,7 @@ let correctAnswer = ""
 
 let listIndicesLinesPlayed = []
 let indexFirstLine = 0
-let indexLastLine = 7173  // this is the size of the test-set
+let indexLastLine = 7111  // this is the size of the test-set
 let isGotUniqueLine = false
 let indexNextLine = 0
 

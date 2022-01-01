@@ -1,0 +1,40 @@
+/* #idea
+.class  */
+
+#previous_line{
+  color : lightgrey;
+}
+
+
+.game {
+    position:fixed;
+    top: 50%;
+    left: 50%;
+    width:50em;
+    height:32em;
+    margin-top: -15em;
+    margin-left: -25em;
+    border: 1px solid #ccc;
+    background-color: white;
+    text-align: center;
+}
+
+.line {
+    display: inline-block;
+    margin-top: 2em;
+}
+
+
+.buttons {
+    position:absolute;
+    top:45%;
+    left:33%;
+    margin-bottom: 2em;
+    background-color: white;
+}
+
+.my_scores {
+  margin-top: 2em;
+  background-color: lightgrey;
+  margin-bottom: 2em;
+}

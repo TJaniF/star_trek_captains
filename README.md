@@ -81,7 +81,7 @@ ____________
 The raw scripts of all episodes from the five series were scraped from chakoteya.net using BeautifulSoup. A table containing the episode title, stardate (the calendar system much of the Star Trek franchise uses), original airdate (Gregorian calendar), production number as well as the full script of the episode for each series was created (Figure 1). I made the scraped data available as csvs <a href="https://www.kaggle.com/tamarafingerlin/star-trek-scripts">here on Kaggle</a>. 
 
 <p align="center"><img src="/visual_elements/data_overview.png"></p>  
-<p align="center">_Figure 1. Organization of the scraped data. The example shows the first 5 episodes of the Voyager series._</p>      
+_<p align="center">Figure 1. Organization of the scraped data. The example shows the first 5 episodes of the Voyager series.</p>_      
 _____________       
 <a name="removing_interference"></a>   
 ### Removing Interference

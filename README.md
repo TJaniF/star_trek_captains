@@ -1,6 +1,6 @@
 # Star Trek Captains - an NLP inquiry
 
-<img src="/visual_elements/captains_picture.jpeg" style="width:800px;"/>
+<p align="center"><img src="/visual_elements/captains_picture.jpeg" style="width:800px;"/></p>
 <p align= "right"><a href="https://screenrant.com/every-star-trek-captain-ranked/">Picture Source</a></p>
 
 The five great Star Trek captains (from left to right): Benjamin Sisko, Jonathan Archer, Jean-Luc Picard, James T. Kirk and Kathryn Janeway. They all were at the center of their own television series and their lines are quoted for their insight and wisdom. 

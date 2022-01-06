@@ -7,11 +7,11 @@ The five great Star Trek captains (from left to right): Benjamin Sisko, Jonathan
 
 The avid Trekkie will recognize quite a few of the most famous quotes, and some lines simply by the unique style of each captain, but can a machine learning model do the same? Will the model even be better than a human at recognizing which of these five captains said a specific line?
 
-And is the model better than you? You can find out here: trek.jani.codes
+And is the model better than you? You can find out here: <a href="https://trek.jani.codes/">trek.jani.codes</a>
 
 This project was conducted as the final Capstone in the 3-month Data Science Immersive at General Assembly. 
 
-_______
+_______   
 
 ## Captain’s log 
 - [Cargo Bay Inventory](#cargo) 
@@ -30,7 +30,7 @@ _______
 - [Tricorder upgrades](#tricorder_upgrades)
 - [Hailing Frequency](#hailing_frequency)
 
-_______
+_______   
 <a name="cargo"></a>
 ### Cargo Bay Inventory
 - README.md
@@ -42,7 +42,8 @@ _______
     - main.py
 - style.css
 - presentation_star_trek_captains.pptx
-_____________
+- visual_elements (containing all pictures from this README file)
+_____________   
 <a name="the_mission"></a>
 ### The Mission
 
@@ -50,8 +51,8 @@ This project does not solve any real world problem. But it provided a great oppo
 
 Starting from all lines each of the five famous captains said I set out to build and refine classification models to predict which of the captains a specific quote can be attributed to.
 
-Since - for the purpose of this project - all captains are equally important, the success metric used was the overall accuracy of the model. The baseline accuracy, meaning the proportion of the majority class (Captain Picard) was 0.25. 
-_______________
+Since - for the purpose of this project - all captains are equally important, the success metric used was the overall accuracy of the model. The <span style="color:green">baseline accuracy</span>, meaning the proportion of the majority class (Captain Picard) was <span style="color:green">0.25</span>.
+_______________   
 <a name="preflight_check"></a>
 ### Preflight Check
 
@@ -71,17 +72,17 @@ In each of those series there is one central captain:
 - VOY: Kathryn Janeway 
 - ENT: Jonathan Archer 
 
-A technical note:
+A technical note:   
 All lines of these captains were included, disregarding whether they were said in the original series the captain belongs to or in a crossover episode. Lines from mirror/alternate universe characters were counted with their prime-universe characters. Lines said over communication devices were counted. Personal and captain's logs were not counted unless they were unequivocally identified as belonging to a specific character. 
-____________
+____________   
 <a name="subspace_scan"></a>
 ### Subspace Scan
 
-The raw scripts of all episodes from the five series were scraped from chakoteya.net using BeautifulSoup. A table containing the episode title, stardate (the calendar system much of the Star Trek franchise uses), original airdate (Gregorian calendar), production number as well as the full script of the episode for each series was created (Figure 1). I made the scraped data available as csvs on Kaggle. 
+The raw scripts of all episodes from the five series were scraped from chakoteya.net using BeautifulSoup. A table containing the episode title, stardate (the calendar system much of the Star Trek franchise uses), original airdate (Gregorian calendar), production number as well as the full script of the episode for each series was created (Figure 1). I made the scraped data available as csvs <a href="https://www.kaggle.com/tamarafingerlin/star-trek-scripts">here on Kaggle</a>. 
 
-<p align="center"><img src="/visual_elements/data_overview.png"></p>
-Figure 1. Organization of the scraped data. The example shows the first 5 episodes of the Voyager series.
-_____________
+<p align="center"><img src="/visual_elements/data_overview.png"></p>  
+<p align="center">*Figure 1. Organization of the scraped data. The example shows the first 5 episodes of the Voyager series.*</p>    
+_____________     
 <a name="removing_interference"></a>
 ### Removing Interference
 
@@ -94,33 +95,33 @@ The caveat was that sometimes a character was speaking over the comm-system whic
 Regex was used to collect both the names of the characters speaking and the lines spoken (Figure 2). 
 
 <p align="center"><img src="/visual_elements/main_regex.png"></p>
-Figure 2. The regex used to find characters and their lines. A full breakdown and explanation of this regex can be found in the Jupyter Notebook. 
+<p align="center">*Figure 2. The regex used to find characters and their lines. A full breakdown and explanation of this regex can be found in the Jupyter Notebook.*</p>    
 
 Additionally the lines collected still contained some information that was not spoken by the characters themselves, such as stage directions, for example: `(The main door slams shut behind them.)`, which were always in between smooth parentheses. Additionally characters in mirror universes/clones etc were designated with `OTHER`, which the line separation regex cut off into the previous line. Locations were specified within squared brackets, e.g. `[BRIDGE]`. Lastly names with prefixes, for example `T'Pol` had their prefix cut off into the previous line, which in some cases could constitute data leakage (for example, since T'Pol only exists in ENT, the `T'`at the end of a line would be a clear predictor for Archer having said that line). 
 
 All of these artefacts were removed using regex. 
-______________
+______________   
 <a name="level_5_diagnostic"></a>
 ### Level 5 Diagnostic
 
-Initial EDA quickly showed that all captains sometimes did not need many words to get what they want. Since a line simply consisting of “Yes.” is not classifiable, neither by human nor model the decision was made to only analyze lines with at least 5 words and at least 20 characters. 
+Initial EDA quickly showed that all captains sometimes did not need many words to get what they want. Since a line simply consisting of `Yes.` is not classifiable, neither by human nor model the decision was made to only analyze lines with at least 5 words and at least 20 characters. 
 
 This approach resulted in 35552 lines in total. The five classes were nicely balanced with the majority of the lines (8888 or 25%) having been said by Captain Picard (Figure 3). 
 
-<p align="center"><img src="/visual_elements/class_balance.png"></p>
-Figure 3. Class Balance.
+<p align="center"><img src="/visual_elements/class_balance.png"></p>  
+<p align="center">*Figure 3. Class Balance.*</p>  
 
 
 After removing lines with less than 5 words there still remained a notable difference in how many words each captain used on average with Janeway having the longest average line at 12.57 words and Archer being more curt at an average of 10.63 words per line (Figure 4). 
 
 <p align="center"><img src="/visual_elements/average_word_count.png"></p>
-Figure 4. Average word count per line of each captain. Overall the average line consisted of 11.6 words. 
+<p align="center">Figure 4. Average word count per line of each captain. Overall the average line consisted of 11.6 words.</p>    
 
 A simple wordcount using CountVectorizer from scikit-learn was used to determine the most common words per captain (excluding english stopwords). The result was visualized with word clouds using the WordCloud package and pictures of the captains (Figure 5).
 
 <p align="center"><img src="/visual_elements/word_clouds.png"></p>
-Figure 5. Word clouds of all captains. Top row left to right: Janeway, Picard, Archer. Bottom row left to right: Kirk, Sisko.
-_____________
+<p align="center">Figure 5. Word clouds of all captains. Top row left to right: Janeway, Picard, Archer. Bottom row left to right: Kirk, Sisko.</p>   
+_____________   
 <a name="feature_engineering"></a>
 ### Feature Engineering
 
@@ -133,14 +134,14 @@ The number of words in each line was also extracted into a separate feature for 
 Additionally part-of-speech tagging was done using the NLTK package (Figure 6) to extract both grammatical features and punctuation.
 
 <p align="center"><img src="/visual_elements/part_of_speech_tagging.png"></p>
-Figure 6. Example of part-of-speech tagging. WP: Wh-pronoun, VBP: verb (non-3rd-person singular present), PRP: personal pronoun, VB: verb (base form), NNP: proper noun (singular). 
+<p align="center">Figure 6. Example of part-of-speech tagging. WP: Wh-pronoun, VBP: verb (non-3rd-person singular present), PRP: personal pronoun, VB: verb (base form), NNP: proper noun (singular).</p>    
 
 Lastly the pre-trained word embeddings from GloVe’s wikipedia crawl and a custom function was used to calculate the average 300-dimensional embedding of each line (Figure 7). 
 
 (For fun the 50-dimensional embeddings were used to find the average word each captain said using all words in all their lines. It was the same for every captain: “supposed”). 
 
 <p align="center"><img src="/visual_elements/convert_lines_avg_embedding.png"></p>
-Figure 7. Function to find the average embedding of all words in a line using GloVe pre-trained embedding vectors. 
+<p align="center">Figure 7. Function to find the average embedding of all words in a line using GloVe pre-trained embedding vectors.</p>    
 
 
 In summary the following features were engineered from each line resulting in 9125 predictors:
@@ -155,12 +156,12 @@ __________________
 Seven preliminary models were tested on only the bag-of-word approach comparing CountVectorizer (Cvec) and TfidfVectorizer (Tfidf). While all models performed better than baseline, the highest accuracy achieved was 0.377 with a Multinomial Naive Bayes model, followed closely by Logistic Regression scoring 0.376 (Figure 8). There was little difference between the results obtained by using the two different vectorizers, while CountVectorizer seemed to fare slightly better, hence it was used moving forward.
 
 <p align="center"><img src="/visual_elements/test_accuracy_scores.png"></p>
-Figure 8. Test Accuracy Scores for bag-of-words models. 
+<p align="center">Figure 8. Test Accuracy Scores for bag-of-words models.</p>    
 
 A sanity check was performed by evaluating the coefficients of the Logistic Regression model in combination with TfidfVectorizer picked to predict for each captain. The example in figure 9 shows the top predictors for each captain, which to a Trekkie mostly make perfect sense.  Sanity check passed!
 
 <p align="center"><img src="/visual_elements/coefficients_all_captains.png"></p>
-Figure 9. Top coefficients in the Logistic Regression (bag-of-words approach) for each of the captains.
+<p align="center">Figure 9. Top coefficients in the Logistic Regression (bag-of-words approach) for each of the captains.</p>   
 __________________
 <a name="xgboost"></a>
 ### XGBoost
@@ -170,12 +171,12 @@ To obtain the best possible accuracy XGBoost was used on different weak Decision
 There was residual overfitting as shown in figure 10. 
 
 <p align="center"><img src="/visual_elements/xgb_logloss.png"></p>
-Figure 10. mlogloss of the train and test set over 500 epochs. 
+<p align="center">Figure 10. mlogloss of the train and test set over 500 epochs.</p>    
 
 The XGBoost model reached an overall accuracy of 0.4756 which was a sizable improvement from baseline (0.25). In the confusion matrix in figure 11 one can see that for each true label the most commonly predicted class was the correct one. If predicted wrongly the answer was most often Picard, which makes sense, with Picard being the majority class. The exception to this were lines by Archer which - if mislabeled - most often got predicted as having been said by Janeway. 
 
 <p align="center"><img src="/visual_elements/xgb_confusion_matrix.png"></p>
-Figure 11. Confusion matrix for the XGBoost model with the greatest accuracy. 
+<p align="center">Figure 11. Confusion matrix for the XGBoost model with the greatest accuracy.</p>    
 ______________
 <a name="minigame"></a>
 ### Minigame
@@ -183,7 +184,7 @@ ______________
 In order to make the model accessible to anyone a website (Figure 12) was created from scratch using HTML and CSS on the frontend and JavaScript on the backend. A custom API that serves individual lines as well as the model’s guess and the correct answer for the line was created using the FastAPI package for Python. 
 
 <p align="center"><img src="/visual_elements/minigame.png"></p>
-Figure 12. Screenshot from the minigame website. 
+<p align="center">Figure 12. Screenshot from the minigame website.</p>    
 _______________
 <a name="report"></a>
 ### Report

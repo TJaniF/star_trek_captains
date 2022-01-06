@@ -51,7 +51,7 @@ This project does not solve any real world problem. But it provided a great oppo
 
 Starting from all lines each of the five famous captains said I set out to build and refine classification models to predict which of the captains a specific quote can be attributed to.
 
-Since - for the purpose of this project - all captains are equally important, the success metric used was the overall accuracy of the model. The <p color="green">baseline accuracy</p>, meaning the proportion of the majority class (Captain Picard) was <p color="green">0.25</p>.
+Since - for the purpose of this project - all captains are equally important, the success metric used was the overall accuracy of the model. The baseline accuracy, meaning the proportion of the majority class (Captain Picard) was 0.25.
 _______________   
 <a name="preflight_check"></a>
 ### Preflight Check
@@ -136,7 +136,7 @@ The number of words in each line was also extracted into a separate feature for 
 Additionally part-of-speech tagging was done using the NLTK package (Figure 6) to extract both grammatical features and punctuation.
 
 <p align="center"><img src="/visual_elements/part_of_speech_tagging.png"></p>
-<p align="center"><i>Figure 6. Example of part-of-speech tagging. WP: Wh-pronoun, VBP: verb (non-3rd-person singular present), PRP: personal pronoun, VB: verb (base form), NNP: proper noun (singular).</p>    
+<p align="center"><i>Figure 6. Example of part-of-speech tagging. WP: Wh-pronoun, VBP: verb (non-3rd-person singular present), PRP: personal pronoun, VB: verb (base form), NNP: proper noun (singular).</i></p>    
 
 Lastly the pre-trained word embeddings from GloVe’s wikipedia crawl and a custom function was used to calculate the average 300-dimensional embedding of each line (Figure 7). 
 
@@ -164,6 +164,7 @@ A sanity check was performed by evaluating the coefficients of the Logistic Regr
 
 <p align="center"><img src="/visual_elements/coefficients_all_captains.png"></p>
 <p align="center"><i>Figure 9. Top coefficients in the Logistic Regression (bag-of-words approach) for each of the captains.</i></p>   
+  
 __________________
 <a name="xgboost"></a>
 ### XGBoost
@@ -179,6 +180,7 @@ The XGBoost model reached an overall accuracy of 0.4756 which was a sizable impr
 
 <p align="center"><img src="/visual_elements/xgb_confusion_matrix.png"></p>
 <p align="center"><i>Figure 11. Confusion matrix for the XGBoost model with the greatest accuracy.</i></p>    
+  
 ______________
 <a name="minigame"></a>
 ### Minigame

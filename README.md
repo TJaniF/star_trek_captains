@@ -51,7 +51,7 @@ This project does not solve any real world problem. But it provided a great oppo
 
 Starting from all lines each of the five famous captains said I set out to build and refine classification models to predict which of the captains a specific quote can be attributed to.
 
-Since - for the purpose of this project - all captains are equally important, the success metric used was the overall accuracy of the model. The <p style="color:green">baseline accuracy</p>, meaning the proportion of the majority class (Captain Picard) was <p style="color:green">0.25</p>.
+Since - for the purpose of this project - all captains are equally important, the success metric used was the overall accuracy of the model. The <p color="green">baseline accuracy</p>, meaning the proportion of the majority class (Captain Picard) was <p color="green">0.25</p>.
 _______________   
 <a name="preflight_check"></a>
 ### Preflight Check

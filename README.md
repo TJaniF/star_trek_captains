@@ -1,6 +1,6 @@
 # Star Trek Captains - an NLP inquiry
 
-<img src="./visual_elements/captains_picture.jpeg" style="width:800px;"/>
+<img src="/visual_elements/captains_picture.jpeg" style="width:800px;"/>
 <div style="text-align: right"><a href="https://screenrant.com/every-star-trek-captain-ranked/">Picture Source</a></div>
 
 The five great Star Trek captains (from left to right): Benjamin Sisko, Jonathan Archer, Jean-Luc Picard, James T. Kirk and Kathryn Janeway. They all were at the center of their own television series and their lines are quoted for their insight and wisdom. 
@@ -89,7 +89,7 @@ The column of interest in figure 1 was the script column, containing a list of w
 
 A line simply is all text spoken until the next character speaks or the episode ends, it can range from one word to containing a whole paragraph of text.
 
-The caveat was that sometimes a character was speaking over the comm-system which was signified by “[OC]” behind the character name and Captain’s - and Private logs were often not declared in all caps. Additionally one character’s name (to be precise, several characters of an omnipotent collective species) consists only of one capital letter “Q” which meant that in that case the colon behind the name had to be used to differentiate being Q speaking and Q simply being mentioned by another character.
+The caveat was that sometimes a character was speaking over the comm-system which was signified by `[OC]` behind the character name and Captain’s - and Private logs were often not declared in all caps. Additionally one character’s name (to be precise, several characters of an omnipotent collective species) consists only of one capital letter `Q` which meant that in that case the colon behind the name had to be used to differentiate being Q speaking and Q simply being mentioned by another character.
 
 Regex was used to collect both the names of the characters speaking and the lines spoken (Figure 2). 
 

@@ -185,7 +185,7 @@ ______________
 <a name="minigame"></a>
 ### Minigame
 
-In order to make the model accessible to anyone a website (Figure 12) was created from scratch using HTML and CSS on the frontend and JavaScript on the backend. A custom API that serves individual lines as well as the model’s guess and the correct answer for the line was created using the FastAPI package for Python. 
+In order to make the model accessible to anyone a <a href="https://trek.jani.codes/">website</a> (Figure 12) was created from scratch using HTML and CSS on the frontend and JavaScript on the backend. A custom API that serves individual lines as well as the model’s guess and the correct answer for the line was created using the FastAPI package for Python. 
 
 <p align="center"><img src="/visual_elements/minigame.png"></p>
 <p align="center"><i>Figure 12. Screenshot from the minigame website.</i></p>    

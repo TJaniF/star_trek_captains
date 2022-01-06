@@ -51,7 +51,7 @@ This project does not solve any real world problem. But it provided a great oppo
 
 Starting from all lines each of the five famous captains said I set out to build and refine classification models to predict which of the captains a specific quote can be attributed to.
 
-Since - for the purpose of this project - all captains are equally important, the success metric used was the overall accuracy of the model. The <span style="color:green">baseline accuracy</span>, meaning the proportion of the majority class (Captain Picard) was <span style="color:green">0.25</span>.
+Since - for the purpose of this project - all captains are equally important, the success metric used was the overall accuracy of the model. The <p style="color:green">baseline accuracy</p>, meaning the proportion of the majority class (Captain Picard) was <p style="color:green">0.25</p>.
 _______________   
 <a name="preflight_check"></a>
 ### Preflight Check
@@ -75,15 +75,15 @@ In each of those series there is one central captain:
 A technical note:   
 All lines of these captains were included, disregarding whether they were said in the original series the captain belongs to or in a crossover episode. Lines from mirror/alternate universe characters were counted with their prime-universe characters. Lines said over communication devices were counted. Personal and captain's logs were not counted unless they were unequivocally identified as belonging to a specific character. 
 ____________   
-<a name="subspace_scan"></a>
-### Subspace Scan
+<a name="subspace_scan"></a>   
+### Subspace Scan    
 
 The raw scripts of all episodes from the five series were scraped from chakoteya.net using BeautifulSoup. A table containing the episode title, stardate (the calendar system much of the Star Trek franchise uses), original airdate (Gregorian calendar), production number as well as the full script of the episode for each series was created (Figure 1). I made the scraped data available as csvs <a href="https://www.kaggle.com/tamarafingerlin/star-trek-scripts">here on Kaggle</a>. 
 
 <p align="center"><img src="/visual_elements/data_overview.png"></p>  
-<p align="center">*Figure 1. Organization of the scraped data. The example shows the first 5 episodes of the Voyager series.*</p>    
-_____________     
-<a name="removing_interference"></a>
+<p align="center">_Figure 1. Organization of the scraped data. The example shows the first 5 episodes of the Voyager series._</p>      
+_____________       
+<a name="removing_interference"></a>   
 ### Removing Interference
 
 The column of interest in figure 1 was the script column, containing a list of whole-episode scripts in the form of a string. The first step in getting the data into a clean line-by-line form was to find the character speaking (written in all caps) and their respective line. 

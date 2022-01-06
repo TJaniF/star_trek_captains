@@ -189,6 +189,7 @@ In order to make the model accessible to anyone a website (Figure 12) was create
 
 <p align="center"><img src="/visual_elements/minigame.png"></p>
 <p align="center"><i>Figure 12. Screenshot from the minigame website.</i></p>    
+  
 _______________
 <a name="report"></a>
 ### Report
